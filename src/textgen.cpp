@@ -1,6 +1,7 @@
-#include "textgen.h"  
+// Copyright 2021 GHA Test Team
+#include "textgen.h"
 
-std::map<std::deque<std::string>, std::vector<std::string>> 
+std::map<std::deque<std::string>, std::vector<std::string>>
 generateMarkov(int NPREF, std::string filename) {
     typedef std::deque<std::string> prefix;
     std::map<prefix, std::vector<std::string>> statetab;
@@ -23,9 +24,9 @@ generateMarkov(int NPREF, std::string filename) {
     return statetab;
 }
 
-std::string generateText(int NPREF, int MAXGEN, 
+std::string generateText(int NPREF, int MAXGEN,
     std::deque<std::string> intitalPref,
-    std::map<std::deque<std::string>, 
+    std::map<std::deque<std::string>,
     std::vector<std::string>> statetab) {
     std::string text = "";
     typedef std::deque<std::string> prefix;
@@ -38,7 +39,7 @@ std::string generateText(int NPREF, int MAXGEN,
         }
         int n = suf.size();
         srand(time(NULL));
-        int r = rand() % n;
+        int r = rand_r() % n;
         std::string word = suf[r];
         count += word.size();
         text = text + word + " ";
