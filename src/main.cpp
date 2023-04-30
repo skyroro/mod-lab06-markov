@@ -1,5 +1,6 @@
-#include <iostream> 
-#include "textgen.h"  
+// Copyright 2021 GHA Test Team
+#include <iostream>
+#include "textgen.h"
 
 int main() {
     const int NPREF = 2;
@@ -7,7 +8,8 @@ int main() {
     std::string filename = "input.txt";
     //вызвать создание таблицы
     typedef std::deque<std::string> prefix;
-    std::map<prefix, std::vector<std::string>> statetab = generateMarkov(NPREF, filename);
+    std::map<prefix, std::vector<std::string>> statetab
+    = generateMarkov(NPREF, filename);
     //создаем начальный префикс
     std::vector<std::string> start_words;
     std::ifstream file(filename);
@@ -20,10 +22,10 @@ int main() {
     file.close();
     prefix intitalPref;
     srand(time(NULL));
-    int index = rand() % start_words.size();
+    int index = rand_r() % start_words.size();
     for (int i = 0; i < NPREF; i++) {
         intitalPref.push_back(start_words[index + i]);
-    }  
+    }
     //генерируем текст
     std::string text = generateText(NPREF, MAXGEN, intitalPref, statetab);
     std::cout << text;
