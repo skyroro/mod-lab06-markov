@@ -7,7 +7,7 @@ TEST(TestCaseName, TestName) {
         std::string filename = "input.txt";
         typedef std::deque<std::string> prefix;
         std::map<prefix, std::vector<std::string>> statetab
-	= generateMarkov(NPREF, filename);
+        = generateMarkov(NPREF, filename);
         prefix pref = statetab.begin()->first;
         int result = pref.size();
         EXPECT_EQ(result, NPREF);
@@ -18,7 +18,7 @@ TEST(TestCaseName2, TestName2) {
         std::string filename = "input.txt";
         typedef std::deque<std::string> prefix;
         std::map<prefix, std::vector<std::string>> statetab
-	= generateMarkov(NPREF, filename);
+        = generateMarkov(NPREF, filename);
         prefix intitalPref;
         intitalPref.push_back("was");
         intitalPref.push_back("wondering");
@@ -32,7 +32,7 @@ TEST(TestCaseName3, TestName3) {
         std::string filename = "input.txt";
         typedef std::deque<std::string> prefix;
         std::map<prefix, std::vector<std::string>> statetab
-	= generateMarkov(NPREF, filename);
+        = generateMarkov(NPREF, filename);
         prefix pref;
         pref.push_back("was");
         pref.push_back("wondering");
@@ -46,7 +46,7 @@ TEST(TestCaseName4, TestName4) {
         std::string filename = "input.txt";
         typedef std::deque<std::string> prefix;
         std::map<prefix, std::vector<std::string>> statetab
-	= generateMarkov(NPREF, filename);
+        = generateMarkov(NPREF, filename);
         prefix pref;
         pref.push_back("from");
         pref.push_back("the");
@@ -59,7 +59,7 @@ TEST(TestCaseName5, TestName5) {
         std::string filename = "input.txt";
         typedef std::deque<std::string> prefix;
         std::map<prefix, std::vector<std::string>> statetab
-	= generateMarkov(NPREF, filename);
+        = generateMarkov(NPREF, filename);
         std::vector<std::string> start_words;
         std::ifstream file(filename);
         if (!file.is_open()) std::cout << "no";
