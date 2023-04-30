@@ -22,7 +22,7 @@ int main() {
     file.close();
     prefix intitalPref;
     srand(time(NULL));
-    int index = rand() % start_words.size();
+    int index = std::rand() % start_words.size();
     for (int i = 0; i < NPREF; i++) {
         intitalPref.push_back(start_words[index + i]);
     }
