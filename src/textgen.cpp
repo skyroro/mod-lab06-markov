@@ -39,7 +39,7 @@ std::string generateText(int NPREF, int MAXGEN,
         }
         int n = suf.size();
         srand(time(NULL));
-        int r = rand_r() % n;
+        int r = rand() % n;
         std::string word = suf[r];
         count += word.size();
         text = text + word + " ";
